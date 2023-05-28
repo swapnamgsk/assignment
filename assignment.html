@@ -1,0 +1,66 @@
+<html>
+<head>
+	<title>fetch part</title>
+	<link rel = "stylesheet" href = "assignment.css"/>
+</head>
+<body>
+	<div id = "main">
+		<div id = "cont">
+			<h2>Name</h2>
+			<input type = "text" placeholder = "name" id = "name" class = "common"></input>
+			
+			<h2>UserName</h2>
+			<input type = "text" placeholder = "username" id = "user" class = "common"></input>
+			
+			<h2>Mail</h2>
+			<input type = "email" placeholder = "email" id = "mail" class = "common"></input>
+			
+			<h2>PhoneNumber</h2>
+			<input type = "number" placeholder = "phone" id = "number" class = "common"></input><br>
+			
+			<button id = "btn">submit</button>
+		</div>
+		
+	</div>
+</body>
+<script>
+	let button = document.querySelector("#btn");
+	let result = JSON.parse(localStorage.getItem("input") || [];
+	
+	button.onclick=function()
+	{
+		let name = document.querySelector("#name").value;
+		let user = document.querySelector("#user").value;
+		let mail = document.querySelector("#mail").value;
+		let number = document.querySelector("#number").value;
+		
+		let doc = document.createElement("div");
+		doc.append(name,user,mail,number);
+		console.log(doc);
+		
+		let array = [];
+		for(let i = 0;i<result.length;i++)
+		{
+			if(result[i].name == name || result[i].user == user || result[i].mail == mail || result[i].number == number)
+			{
+				let obj = 
+				{
+					result[i].name : name,
+					result[i].user : user;
+					result[i].mail : mail;
+					result[i].number : number;
+				}
+			}
+			array.push(obj);
+			else
+			{
+				array.push(result[i]);
+			}
+		}
+		
+		localStorage.setItem("input",JSON.stringify[...result[i].name,user,mail,number]);
+		//console.log(store);
+		
+	}
+</script>
+</html>
